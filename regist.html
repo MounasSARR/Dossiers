@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<title>form validation</title>
+	<link rel="stylesheet" type="text/css" href="regist.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h2>Registration form</h2>
+			<div><i style='font-size:24px' class="fas">&#xf2bd;</i></div>
+		</div>
+		<form action="" class="main-form" 
+		onsubmit="return myfun()">
+		<div class="form">
+			<label for="">Prenom</label>
+			<input type="text" placeholder="Enter votre Prenom" id="username" autocomplete="off">
+			<i class="fas sucess">&#xf058;</i>
+			<i class="fas error">&#xf06a;</i>
+			<small class="message">error message</small>
+	</div>
+	<div class="form">
+			<label for="">Email</label>
+			<input type="email" placeholder="Enter votre email" id="email" autocomplete="off">
+			<i class="fas sucess">&#xf058;</i>
+			<i class="fas error">&#xf06a;</i>
+			<small class="message">error message</small>
+	</div>
+	<div class="form">
+			<label for="">Mot de passe</label>
+			<input type="password" placeholder="Enter votre mot de passe" id="password1" autocomplete="off">
+			<i class="fas sucess">&#xf058;</i>
+			<i class="fas error">&#xf06a;</i>
+			<small class="message">error message</small>
+	</div>
+	<div class="form">
+			<label for="">Confirmer mot de passe</label>
+			<input type="password" placeholder="confirmer votre mot de passe" id="password2" autocomplete="off">
+			<i class="fas sucess">&#xf058;</i>
+			<i class="fas error">&#xf06a;</i>
+			<small class="message">error message</small>
+	</div>
+	<button>submit</button>
+</form> 
+</div>
+
+<script>
+	function myfun(){
+		const username=document.getElementById('username');
+		const email=document.getElementById('email');
+		const password1=document.getElementById('password1');
+		const password2=document.getElementById('password2');
+		const message=document.getElementsByClassName('message');
+		const icon=document.querySelector('i');
+		const sucess=document.getElementsByClassName('sucess');
+		const error=document.getElementsByClassName('error');
+
+
+// button succes variable//
+let u=0;
+let e=0;
+let p1=0;
+let p2=0;
+
+		//validation du prenom//
+		if(username.value==""){
+			username.style.borderColor = 'red';
+			message[0].style.visibility = 'visible';
+			message[0].style.color='red';
+			message[0].innerText="Champs obligation";
+			error[0].style.visibility = 'visible';
+			error[0].style.color='red';
+			u=0;
+
+		}
+		else if(username.value.length<3&&username.value.length>0){
+			username.style.borderColor = 'red';
+			message[0].style.visibility = 'visible';
+			message[0].style.color='red';
+			message[0].innerText="le nom d'utilisateur a au moins 3 caractères";
+			error[0].style.visibility = 'visible';
+			error[0].style.color='red';
+			u =0;
+		}
+		else if(username.value.length>3&&(isNaN(parseFloat(username.value)))){
+			username.style.borderColor = 'green';
+			error[0].style.visibility = 'hidden';
+			message[0].style.visibility = 'hidden';
+			sucess[0].style.visibility = 'visible';
+			sucess[0].style.color='green';
+			u=1;
+
+		}
+		else{
+			username.style.borderColor = 'red';
+			message[0].style.visibility = 'visible';
+			message[0].style.color='red';
+			message[0].innerText="les nombres ne sont pas autorisé au début";
+			error[0].style.visibility = 'visible';
+			error[0].style.color='red';
+			u=0;
+			
+		}
+
+if(email.value==""){
+email.style.borderColor = 'red';
+message[1].style.visibility = 'visible';
+message[1].style.color='red';
+message[1].innerText="Champs obligation";
+  error[1].style.visibility = 'visible';
+  error[1].style.color='red';
+  e=0;
+		}
+
+else if(email.value.indexOf('@')<3||email.value.lastIndexOf('.')>=email.value.length-2){
+			email.style.borderColor = 'red';
+		message[1].style.visibility = 'visible';
+		message[1].style.color='red';
+		message[1].innerText="email invalid";
+		  error[1].style.visibility = 'visible';
+		  error[1].style.color='red';
+		  e=0;
+
+			}
+
+			else{
+		email.style.borderColor = 'green';
+		error[1].style.visibility = 'hidden';
+		message[1].style.visibility = 'hidden';
+		sucess[1].style.visibility = 'visible';
+		sucess[1].style.color='green';
+		e=1;
+	}
+	//validation du mot de passe//
+	var numbers=/[0-9]/g;
+	if(password1.value==""){
+	password1.style.borderColor = 'red';
+	message[2].style.visibility = 'visible';
+	message[2].style.color='red';
+	message[2].innerText="Champs obligation";
+	error[2].style.visibility = 'visible';
+	error[2].style.color='red';
+	p1=0;
+
+	}
+else if(password1.value.length<9){
+password1.style.borderColor = 'red';
+message[2].style.visibility = 'visible';
+message[2].style.color='red';
+message[2].innerText="password must be minimum 8 chacacter";
+error[2].style.visibility = 'visible';
+error[2].style.color='red';
+p1=0;
+
+}
+else if(!(password1.value.match(numbers))){
+password1.style.borderColor = 'red';
+message[2].style.visibility = 'visible';
+message[2].style.color='red';
+message[2].innerText="password have atleast a number";
+error[2].style.visibility = 'visible';
+error[2].style.color='red';
+p1=0;
+
+}
+else{
+password1.style.borderColor = 'green';
+error[2].style.visibility = 'hidden';
+message[2].style.visibility = 'hidden';
+sucess[2].style.visibility = 'visible';
+sucess[2].style.color='green';
+p1=0;
+
+}
+//confirmation mot de pass//
+if(password2.value==""){
+password2.style.borderColor = 'red';
+message[3].style.visibility = 'visible';
+message[3].style.color='red';
+message[3].innerText="Champs obligatoire";
+error[3].style.visibility = 'visible';
+error[3].style.color='red';
+p2=0;
+
+}
+else if(password1.value!=password2.value){
+password2.style.borderColor = 'red';
+message[3].style.visibility = 'visible';
+message[3].style.color='red';
+message[3].innerText="les mots de passe ne sont pas identique";
+error[3].style.visibility = 'visible';
+error[3].style.color='red';
+p2=0;
+
+}
+else{
+password2.style.borderColor = 'green';
+error[3].style.visibility = 'hidden';
+message[3].style.visibility = 'hidden';
+sucess[3].style.visibility = 'visible';
+sucess[3].style.color='green';
+p2=1;
+}
+
+//return condition//
+if(u==1&&e==1&&p1==1&&p2==1){
+	return true;
+}
+else{
+	return false;
+}
+
+	}
+		
+
+	
+
+
+</script>
+</body>
+</html>

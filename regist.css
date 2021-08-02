@@ -1,0 +1,82 @@
+      *{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	body{
+background-image: linear-gradient(rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.1)),
+ url('web.JPG');
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-blend-mode: darken;
+height: 100vh;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: 'Ubuntu',sans-serif;
+	}
+	.container{
+		background-color: white;
+		border-radius: 7px;
+		overflow: hidden;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+		width:437px;
+		max-width: 100%;
+	}
+	.header{
+		text-align: center;
+		padding: 20px;
+		background-color:#c7bfbf;
+	}
+	.header h2{
+		margin:0;
+		font-size: 30px;
+	}
+	.main-form{
+		padding: 30px 40px;
+	}
+	.form{
+		padding-bottom: 20px;
+		margin-bottom: 10px;
+		position:relative;
+	}
+	.form input{
+		border:2px solid #f0f0f0;
+		border-radius: 4px;
+		font-family: inherit;
+		width: 100%;
+		padding: 12px;
+		display: block;
+		font-size: 14px;
+	}
+	form i{
+		position: absolute;
+		top:32px;
+		right: 10px;
+		visibility: hidden;
+	}
+	.form small{
+		position: absolute;
+		bottom: 0;
+		left:5px;
+		visibility: hidden;
+}
+	button{
+		width: 100%;
+		font-family: inherit;
+		font-size: 18px;
+		padding: 10px;
+		border-radius: 7px;
+		box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+		cursor: pointer;
+		color: white;
+		background-color: #655c59;
+		outline: none;
+	}
+	button:hover{
+		background-color: black;
+		color:white;
+	}
